@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Secret Sonta | Homepage
+{% endblock %}
+
+{% block content %}
+<h1>Welcome to Secret Sonta</h1>
+<p>This is where present ideas can be collated and passed around.</p>
+<div>
+  Click <a href="{% url 'presents:list' %}">over here</a> to see the people that need presents
+</div>
+{% endblock %}

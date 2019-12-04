@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block title %}Secret Sonta | People{% endblock %}
+
+{% block content %}
+<div class="cards">
+  {% for person in persons %}
+  <div class="card">
+    <header>
+      <a href="{% url 'presents:idea_detail' pk=person.pk %}">{{ person.name }}</a>
+    </header>
+  </div>
+  {% endfor %}
+  </div>
+{% endblock %}

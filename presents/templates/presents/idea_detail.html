@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ person.name }}'s presents{% endblock %}
+
+{% block content %}
+<h1>Here are some present ideas for {{ person.name }}</h1>
+
+{% for idea in person.idea_set.all %}
+  <h2>Present idea: {{ idea.title }}</h2>
+    <h3>More info: {{ idea.description }}</h3>
+    <a href="{{ idea.idea_link }}">click here to buy</a>
+    <p>Suggested by: {{ idea.suggested_by }}</p>
+
+{% endfor %}
+
+<nav><a href="{% url 'presents:list' %}">Back to people</a></nav>
+{% endblock %}
