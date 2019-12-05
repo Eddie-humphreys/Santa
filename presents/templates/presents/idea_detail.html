@@ -1,13 +1,24 @@
 {% extends "layout.html" %}
+{% load humanize presents_extras %}
+
+
 
 {% block title %}{{ person.name }}'s presents{% endblock %}
 
 {% block content %}
-<h1>Here are some present ideas for {{ person.name }}</h1>
+<h1>Here are some present ideas for {{ person.name }}:</h1>
+<p>(There {{ person.idea_set.count|pluralize:"is,are" }}
+  {{person.idea_set.count|apnumber }}
+  present idea{{ person.idea_set.count|pluralize }})</p>
 
 {% for idea in person.idea_set.all %}
   <h2>Present idea: {{ idea.title }}</h2>
-    <h3>More info: {{ idea.description }}</h3>
+    {% if idea.description %}
+      <h3>More info: {{ idea.description|markdown_to_html }}</h3>
+      <p>{% with des=idea.description %}
+        (Word count for description: {{ des|wordcount }})</p>
+      {% endwith %}
+    {% endif %}
     <a href="{{ idea.idea_link }}">click here to buy</a>
     <p>Suggested by: {{ idea.suggested_by }}</p>
 

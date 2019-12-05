@@ -107,7 +107,13 @@ html {
     padding: 0.75em 0.75em; }
     .card .card-copy p {
       margin: 0 0 0.75em; }
-
+  .person-nav {
+    width: 100px;
+    background: blanchedalmond;
+    -webkit-transition: width 2s;
+    transition: width 2s; }
+  .person-nav:hover {
+    width: 40%; }
 article h2 a,
 article h3 a {
   color: #642039;
@@ -120,4 +126,7 @@ article .steps {
   article .steps h3 + p {
     margin-left: 1em; }
 
+h2 {
+  color:darkgreen
+}
 /*# sourceMappingURL=layout.css.map */

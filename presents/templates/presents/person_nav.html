@@ -1,0 +1,3 @@
+{% for person in persons %}
+  <div><a href="{% url 'presents:idea_detail' pk=person.pk %}">{{ person.name }}</a></div>
+{% endfor %}

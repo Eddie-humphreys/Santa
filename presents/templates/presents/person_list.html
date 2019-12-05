@@ -1,5 +1,10 @@
 {% extends 'layout.html' %}
+{% load static from staticfiles %}
+{% load presents_extras %}
 
+{% block static %}
+<link rel="stylesheet" href="{% static 'presents/css/presents.css' %}">
+{% endblock %}
 {% block title %}Secret Sonta | People{% endblock %}
 
 {% block content %}
@@ -8,8 +13,15 @@
   <div class="card">
     <header>
       <a href="{% url 'presents:idea_detail' pk=person.pk %}">{{ person.name }}</a>
+      <div>Created {{ person.created_at|date:"d/m/y"}}</div>
     </header>
   </div>
+
   {% endfor %}
   </div>
+  <div class="cards">
+      <p>The latest person added was: {% newest_present %}</p>
+  </div>
+
+
 {% endblock %}

@@ -7,7 +7,6 @@ Secret Sonta | Homepage
 {% block content %}
 <h1>Welcome to Secret Sonta</h1>
 <p>This is where present ideas can be collated and passed around.</p>
-<div>
-  Click <a href="{% url 'presents:list' %}">over here</a> to see the people that need presents
-</div>
+<p>Click over here to see the people that need presents</p>
+  <a href="{% url 'presents:list' %}" class="card">PRESENTS!</a>
 {% endblock %}
